@@ -1,0 +1,22 @@
+{
+  "cognito": {
+    "client_id": "5h3tpq2rjhlo99chsejc8ed82c"
+  },
+  "dynamodb": {
+    "table": "iino-cms-table"
+  },
+  "cors_headers": {
+    "post": {
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "OPTIONS,POST",
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "get": {
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "OPTIONS,GET",
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="discription"
+      constent="顧客管理システム、操作履歴の閲覧ページです"
+    />
+    <title>操作履歴</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="page list">
+    <header><h1 class="d-none">操作履歴</h1></header>
+    <!--トグルウィンドウ-->
+    <div id="toggle_search_window" class="toggle-search-window d-none">
+      <input
+        type="button"
+        id="close_search_button"
+        class="button close"
+        value="×"
+      />
+      <ul>
+        <li class="d-flex">
+          <input type="text" id="search_target_toggle" class="search-text" />
+          <input
+            type="button"
+            id="search_target_button_toggle"
+            class="button search"
+            value="顧客IDで検索"
+          />
+        </li>
+        <li class="d-flex">
+          <input
+            type="text"
+            id="search_target_name_toggle"
+            class="search-text"
+          />
+          <input type="button" id="search_target_name_button_toggle" class="button search" value="顧客名で検索"
+          />
+        </li>
+        <li class="d-flex">
+          <input type="text" id="search_operator_toggle" class="search-text" />
+          <input type="button" id="search_operator_button_toggle" class="button search" value="操作者で検索"
+          />
+        </li>
+        <li class="d-flex">
+          <input type="date" id="search_date_toggle"class="search-text" />
+          <input type="button" id="search_date_button_toggle" class="button search" value="日時で検索" />
+        </li>
+      </ul>
+    </div>
+    <div id="toggle_nav_window" class="toggle-nav-window d-none">
+      <input
+        type="button"
+        id="close_nav_button"
+        class="button close"
+        value="×"
+      />
+      <nav>
+        <a href="create.html" class="toggle-nav-content">新規追加</a>
+        <a href="read.html" class="toggle-nav-content">顧客一覧</a>
+        <p class="toggle-nav-content current">操作履歴</p>
+        <input type="button" id="logout_button_toggle" class="toggle-nav-content" value="LOGOUT" />
+      </nav>
+    </div>
+    <!---->
+    <div class="wrapper read d-grid border-double bg-white">
+      <main class="d-grid table-wrapper">
+        <div>
+          <!--トグルボタン-->
+          <div class="hidden-button">
+            <input
+              type="button"
+              id="open_search_button"
+              class="button toggle"
+              value="検索"
+            />
+            <input
+              type="button"
+              id="open_nav_button"
+              class="button toggle"
+              value="リンク"
+            />
+          </div>
+          <!---->
+          <nav class="nav-flex">
+            <div class="nav-flex-left">
+              <h2 class="nav-header">CONTENTS</h2>
+            </div>
+            <div class="nav-flex-right">
+              <a href="create.html" class="nav-content">新規追加</a>
+              <a href="read.html" class="nav-content">顧客一覧</a>
+              <p class="nav-content current">操作履歴</p>
+              <input type="button" id="logout_button" class="nav-content" value="LOGOUT" />
+            </div>
+          </nav>
+          <ul class="list-4-with-head">
+            <h2 class="list-header">完全一致で検索</h2>
+            <li class="d-flex">
+              <input type="text" id="search_target" class="search-text" />
+              <input
+                type="button"
+                id="search_target_button"
+                class="button search"
+                value="顧客IDで検索"
+              />
+            </li>
+            <li class="d-flex">
+              <input type="text" id="search_target_name" class="search-text" />
+              <input
+                type="button"
+                id="search_target_name_button"
+                class="button search"
+                value="顧客名で検索"
+              />
+            </li>
+            <li class="d-flex">
+              <input type="text" id="search_operator" class="search-text" />
+              <input
+                type="button"
+                id="search_operator_button"
+                class="button search"
+                value="操作者で検索"
+              />
+            </li>
+            <li class="d-flex">
+              <input type="date" id="search_date" class="search-text" />
+              <input type="button" id="search_date_button" class="button search" value="日時で検索" />
+            </li>
+          </ul>
+          <hr />
+          <div>
+            <input
+              type="button"
+              id="all_search_button"
+              class="button search"
+              value="全件検索を行う(高負荷)"
+            />
+          </div>
+          <table class="log-list">
+            <thead>
+              <tr>
+                <th class="l-detail" colspan="7">操作詳細</td>
+                <th class="l-inputdata" colspan="6" class="blue">入力内容</td>
+              </tr>
+              <tr>
+                <th class="l-no">NO.</th>
+                <th class="l-timestamp td-button" id="reverse_button">
+                  時刻ID<span id="allow" class="red">↓</span>
+                </th>
+                <th class="l-date">日時</th>
+                <th class="l-time">時刻</th>
+                <th class="l-operator">操作者</th>
+                <th class="l-target">対象者</th>
+                <th class="l-crud">分類</th>
+                <th class="l-target-name">名前</th>
+                <th class="l-telephone">電話番号</th>
+                <th class="l-gender">性別</th>
+                <th class="l-birthday">誕生日</th>
+                <th class="l-memo">備考</th>
+                <th class="l-info">登録状況</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div id="read_message"></div>
+        <div class="list-2 down">
+          <div id="paging_buttons" >
+            <input type="button" class="button paging" value="1" />
+          </div>
+          <div class="flex-right">
+            <span id="page_count">全0件</span>
+            <span id="current_page">0～0件目</span>
+          </div>
+        </div>
+      </main>
+      <footer class="down">
+        <p><small>©iino.tatsuya@artifacture.co.jp 2022</small></p>
+      </footer>
+    </div>
+    <script src="./js/url.js"></script>
+    <script src="./js/tool.js"></script>
+    <script src="./js/design.js"></script>
+    <script src="./js/log.js"></script>
+    <script src="./js/logout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="discription"
+      constent="管理者管理システムの新規登録及びコードの検証ページです。"
+    />
+    <title>新規登録</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="page">
+    <header><h1 class="d-none">新規登録</h1></header>
+    <div class="wrapper signup d-grid corner-round border-double bg-white fade">
+      <main>
+        <!--登録成功時-->
+        <div id="modal_area_signup" class="modal-area">
+          <div id="modal_back_signup" class="modal-back"></div>
+          <div
+            class="modal-wrapper corner-round border-double confirmation d-grid"
+          >
+            <p class="h3">
+              入力されたメールアドレスに<br />
+              認証コードをお送りしました。
+            </p>
+            <p class="h3">「コードの検証」から<br />正式登録をしてください。</p>
+            <p class="alert center">
+              (５分ほどお時間をいただく場合がございます)
+            </p>
+
+            <hr />
+            <input
+              type="button"
+              id="close_button_signup"
+              class="button center"
+              value="閉じる"
+            />
+          </div>
+        </div>
+        <!---->
+        <!--コード検証-->
+        <div id="modal_area" class="modal-area">
+          <div id="modal_back" class="modal-back"></div>
+          <div
+            class="modal-wrapper corner-round border-double confirmation d-grid"
+          >
+            <form>
+              <h2 class="h2">
+                コードを入力<br class="lessthan" />してください。
+              </h2>
+              <label for="confirmation_id" class="left label">ID</label>
+              <input type="text" id="confirmation_id" class="input-text" />
+              <label for="confirmation_code" class="left label"
+                >認証コード</label
+              >
+              <input type="text" id="confirmation_code" class="input-text" />
+              <div id="confirmation_message"></div>
+              <input
+                type="button"
+                id="confirmation_button"
+                class="button"
+                value="検証する"
+              />
+              <hr />
+              <input
+                type="button"
+                class="button cancel"
+                id="close_button"
+                value="キャンセル"
+              />
+            </form>
+          </div>
+        </div>
+        <!---->
+        <form>
+          <h2 class="h2">新規登録</h2>
+          <label for="user_id" class="left label">ID</label>
+          <input type="text" id="user_id" class="input-text" required />
+          <label for="user_name" class="left label">姓名</label>
+          <input type="text" id="user_name" class="input-text" required />
+          <label for="user_id" class="left label">メールアドレス</label>
+          <input type="text" id="user_mail" class="input-text" required />
+          <label for="user_password" class="left label"
+            >パスワード<br /><span class="alert">
+              小文字大文字の英数字と<br
+                class="lessthan"
+              />&amp;&lt;&gt;&quot;&#039;*以外の記号を含めた<br
+                class="lessthan"
+              />最小８文字
+            </span>
+          </label>
+          <input type="password" id="user_password" class="input-text" />
+          <div id="signup_message"></div>
+          <input
+            type="button"
+            id="signup_button"
+            class="button"
+            value="登録する"
+          />
+          <input type="button" id="popup_button_signup" class="d-none" />
+          <input type="hidden" id="popup_button_signup" />
+        </form>
+        <input
+          type="button"
+          id="popup_button"
+          class="button"
+          value="コードの検証はこちら"
+        />
+        <hr />
+        <a href="./login.html" class="button link">ログインページに戻る</a>
+      </main>
+      <footer>
+        <p><small>©iino.tatsuya@artifacture.co.jp 2022</small></p>
+      </footer>
+    </div>
+    <script src="./js/url.js"></script>
+    <script src="./js/tool.js"></script>
+    <script src="./js/design.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/signup.js"></script>
+    <script src="./js/confirmation.js"></script>
+  </body>
+</html>

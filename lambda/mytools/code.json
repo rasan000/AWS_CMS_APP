@@ -1,0 +1,30 @@
+{
+  "signup": {
+    "Success": {
+      "code": 200,
+      "message": "通信成功"
+    },
+    "NotMatchDomain": {
+      "code": 401,
+      "message": "許可されていないメールアドレスです"
+    },
+    "UsernameExistsException": {
+      "code": 402,
+      "message": "既に使われているIDかメールアドレスです"
+    },
+    "InvalidPasswordException": {
+      "code": 403,
+      "message": "パスワードの強度が条件を満たしていません"
+    },
+    "InvalidParameterException": {
+      "code": 404,
+      "message": "必須項目が入力されていません"
+    }
+  },
+  "login": {},
+  "cofirmation": {},
+  "read": {},
+  "update": {},
+  "delete": {},
+  "create": {}
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="discription"
+      constent="顧客情報の詳細閲覧及び更新、削除ページです"
+    />
+    <title>顧客情報</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="page detail">
+    <header><h1 class="d-none">顧客情報</h1></header>
+    <div class="wrapper update d-grid border-double bg-white">
+      <main class="detail-wrapper">
+        <!--更新確認-->
+        <div id="modal_area" class="modal-area">
+          <div id="modal_back" class="modal-back"></div>
+          <div
+            class="modal-wrapper corner-round border-double confirmation d-grid"
+          >
+            <h2 class="h2">下記の内容で更新します</h2>
+            <div class="list-2">
+              <p class="label">顧客ID</p>
+              <p id="update_target" class="label"></p>
+              <p class="label">顧客名</p>
+              <p id="update_target_name" class="label"></p>
+              <p class="label">性別</p>
+              <p id="update_gender" class="label"></p>
+              <p class="label">電話番号</p>
+              <p id="update_telephone" class="label"></p>
+              <p class="label">生年月日</p>
+              <p id="update_birthday" class="label"></p>
+              <p class="label">状態</p>
+              <p id="update_info" class="label"></p>
+              <p class="label">備考</p>
+              <p id="update_memo" class="label"></p>
+            </div>
+            <div id="update_message"></div>
+            <input
+              type="button"
+              id="update_button"
+              class="button center"
+              value="確定"
+            />
+            <hr />
+            <input
+              type="button"
+              class="button cancel center"
+              id="close_button"
+              value="キャンセル"
+            />
+          </div>
+        </div>
+        <!---->
+        <!--削除確認-->
+        <div id="modal_area_alert" class="modal-area">
+          <div id="modal_back_alert" class="modal-back"></div>
+          <div
+            class="modal-wrapper-alert corner-round border-double confirmation d-grid"
+          >
+            <h2 class="h2">
+              本当に削除しますか？<br /><span class="alert"
+                >復元できません!!!</span
+              >
+            </h2>
+            <div class="list-2">
+              <p class="label">顧客ID</p>
+              <p id="delete_target" class="label"></p>
+              <p class="label">顧客名</p>
+              <p id="delete_target_name" class="label"></p>
+            </div>
+            <div id="delete_message"></div>
+            <input
+              type="button"
+              id="delete_button"
+              class="button center alert-button"
+              value="削除する"
+            />
+            <hr />
+            <input
+              type="button"
+              class="button cancel center"
+              id="close_button_alert"
+              value="キャンセル"
+            />
+          </div>
+        </div>
+        <!---->
+        <nav class="nav-flex-detail">
+          <a href="create.html" class="nav-content">新規追加</a>
+          <a href="read.html" class="nav-content">顧客一覧</a>
+          <a href="log.html" class="nav-content">操作履歴</a>
+          <input
+            type="button"
+            id="logout_button"
+            class="nav-content"
+            value="LOGOUT"
+          />
+        </nav>
+        <hr />
+        <div class="detail-list">
+          <h2 class="h2">登録情報</h2>
+          <div class="form-list">
+            <label for="target" class="right label">顧客ID</label>
+            <p id="target"></p>
+            <label for="target_name" class="right label">顧客名</label>
+            <input type="text" id="target_name" class="input-text" />
+            <label for="gender" class="right label">性別</label>
+            <select id="gender" class="input-select">
+              <option id="gender1" value="男性">男性</option>
+              <option id="gender2" value="女性">女性</option>
+              <option id="gender3" value="その他">その他</option>
+            </select>
+            <legend for="telephone" class="right label">電話番号</legend>
+            <div class="list-3">
+              <div>
+                <input type="text" id="telephone1" class="input-text" />-
+              </div>
+              <div>
+                <input type="text" id="telephone2" class="input-text" />-
+              </div>
+              <div>
+                <input type="text" id="telephone3" class="input-text" />
+              </div>
+            </div>
+
+            <label for="birthday" class="right label">生年月日</label>
+            <input type="date" id="birthday" class="input-text" />
+            <label for="info" class="right label">状態</label>
+            <select id="info" class="input-select">
+              <option id="info1" value="在籍中">在籍中</option>
+              <option id="info2" value="退会済み">退会済み</option>
+            </select>
+            <label for="memo" class="right label">備考</label>
+            <input type="text" id="memo" class="input-text" />
+            <label for="date" class="right label">登録日</label>
+            <p id="date"></p>
+            <label for="time" class="right label">登録時間</label>
+            <p id="time"></p>
+            <label for="operator" class="right label">登録者</label>
+            <p id="operator"></p>
+            <label for="time_stamp" class="right label">時刻ID</label>
+            <p id="time_stamp"></p>
+            <input
+              type="button"
+              id="popup_button_alert"
+              class="button alert-button"
+              value="データ削除"
+            />
+          </div>
+          <div id="read_message"></div>
+          <input type="button" id="popup_button" class="button" value="確認" />
+        </div>
+      </main>
+      <footer class="down">
+        <p><small>©iino.tatsuya@artifacture.co.jp 2022</small></p>
+      </footer>
+    </div>
+    <script src="./js/url.js"></script>
+    <script src="./js/tool.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/design.js"></script>
+    <script src="./js/update.js"></script>
+    <script src="./js/delete.js"></script>
+    <script src="./js/logout.js"></script>
+  </body>
+</html>

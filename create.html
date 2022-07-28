@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="discription" constent="新規顧客の登録ページです" />
+    <title>顧客登録</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="page detail">
+    <header><h1 class="d-none">顧客登録</h1></header>
+    <div class="wrapper update d-grid border-double bg-white">
+      <main class="detail-wrapper">
+        <!--内容確認-->
+        <section id="modal_area" class="modal-area d-none">
+          <div id="modal_back" class="modal-back"></div>
+          <div
+            class="modal-wrapper corner-round border-double confirmation d-grid"
+          >
+            <h2 class="h2">この内容で登録します。</h2>
+            <div class="list-2">
+              <p class="label">顧客ID</p>
+              <p id="check_target" class="label"></p>
+              <p class="label">顧客名</p>
+              <p id="check_target_name" class="label"></p>
+              <p class="label">性別</p>
+              <p id="check_gender" class="label"></p>
+              <p class="label">電話番号</p>
+              <p id="check_telephone" class="label"></p>
+              <p class="label">生年月日</p>
+              <p id="check_birthday" class="label"></p>
+              <p class="label">備考</p>
+              <p id="check_memo" class="label"></p>
+            </div>
+            <div id="create_message"></div>
+            <input
+              type="button"
+              id="create_button"
+              class="button center"
+              value="確定"
+            />
+            <hr />
+            <input
+              type="button"
+              class="button cancel center"
+              id="close_button"
+              value="キャンセル"
+            />
+          </div>
+        </section>
+        <!--ここまで-->
+        <nav class="nav-flex-detail">
+          <p class="nav-content current">新規追加</p>
+          <a href="read.html" class="nav-content">顧客一覧</a>
+          <a href="log.html" class="nav-content">操作履歴</a>
+          <input
+            type="button"
+            id="logout_button"
+            class="nav-content"
+            value="LOGOUT"
+          />
+        </nav>
+        <hr />
+        <div class="detail-list">
+          <h2 class="h2">新規登録</h2>
+          <div class="form-list">
+            <label for="target" class="right label">顧客ID</label>
+            <input type="text" id="target" class="input-text" />
+            <label for="target_name" class="right label">顧客名</label>
+            <input type="text" id="target_name" class="input-text" />
+            <label for="gender" class="right label">性別</label>
+            <select id="gender" class="input-select">
+              <option value="男性">男性</option>
+              <option value="女性">女性</option>
+              <option value="その他">その他</option>
+            </select>
+            <legend for="telephone" class="right label">電話番号</legend>
+            <div class="list-3">
+              <div>
+                <input type="text" id="telephone1" class="input-text" />-
+              </div>
+              <div>
+                <input type="text" id="telephone2" class="input-text" />-
+              </div>
+              <div>
+                <input type="text" id="telephone3" class="input-text" />
+              </div>
+            </div>
+            <label for="birthday" class="right label">生年月日</label>
+            <input type="date" id="birthday" class="input-text" />
+            <label for="memo" class="right label">備考</label>
+            <input type="text" id="memo" class="input-text" />
+          </div>
+          <div id="check_message"></div>
+          <input type="button" id="popup_button" class="button" value="確認" />
+        </div>
+      </main>
+      <footer class="down">
+        <p><small>©iino.tatsuya@artifacture.co.jp 2022</small></p>
+      </footer>
+    </div>
+    <script src="./js/url.js"></script>
+    <script src="./js/tool.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/design.js"></script>
+    <script src="./js/create.js"></script>
+    <script src="./js/logout.js"></script>
+  </body>
+</html>
